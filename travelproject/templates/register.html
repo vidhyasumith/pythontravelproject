@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+    <style>
+        *{
+        box-sizing: border box;
+        }
+        input[type=text], select, textarea{
+        width:25%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;
+        }
+        input[type=email], select, textarea{
+        width:25%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;
+        }
+        input[type=password], select, textarea{
+        width:25%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;
+        }
+        label{
+        padding: 12px 12px 12px 2px;
+        display:inline-block;
+        }
+        .container{
+        border-radius: 5px;
+        background-color: #ADEAF9;
+        padding: 20px;
+        }
+        .block{
+
+         width:100%;
+         left-margin:auto; right-margin:auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h2 style="text-align:center">Registration</h2>
+<form action="register" method="post">
+    {% csrf_token %}
+    <div class="block" align="center">
+    <label><b>Username</b></label><br>
+    <input type="text" name="username" placeholder="Enter your username"><br>
+    <label><b>First name</b></label><br>
+    <input type="text" name="first_name" placeholder="Enter your first name"><br>
+    <label><b>Last name</b></label><br>
+    <input type="text" name="last_name" placeholder="Enter your last name"><br>
+    <label><b>Email</b></label><br>
+    <input type="email" name="email" placeholder="Enter your mail id"><br>
+    <label><b>Password</b></label><br>
+    <input type="password" name="password" placeholder="Enter the password"><br>
+    <label><b>Confirm password</b></label><br>
+    <input type="password" name="password1" placeholder="Confirm your password"><br>
+        <br>
+    <input type="submit">
+    </div>
+</form>
+    {% for msg in messages %}
+    <h3>{{msg}}</h3>
+    {% endfor %}
+</div>
+</body>
+</html>
